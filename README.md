@@ -5,7 +5,6 @@ An automated blockchain transaction sender that periodically calls the `activate
 ## Features
 
 - **Automated Shrine Activation**: Calls the `activateStreak(address)` function on the Atia Shrine Proxy contract
-- **Automatic Quest Verification**: Waits 1 minute after transaction and verifies the "Pray Atia" quest via GraphQL API
 - **Smart Gas Management**: Optimizes gas usage to prevent overpayment
 - **Multiple RPC Fallbacks**: Ensures reliable execution even if primary RPC fails
 
@@ -73,7 +72,7 @@ pnpm start
 
 ### Setting Up a Cron Job
 
-To run the script automatically at 12:00 AM Philippines time (UTC+8) every day:
+To run the script automatically at 12:00 PM Philippines time (UTC+8) every day:
 1. Find your project's absolute path:
    ```
    pwd
@@ -93,13 +92,13 @@ To run the script automatically at 12:00 AM Philippines time (UTC+8) every day:
 
 4. Add the following line (replace with your actual paths from steps 1 and 2):
    ```
-   0 16 * * * cd /path/to/lazy-atia-shrine && /path/to/pnpm start >> /path/to/lazy-atia-shrine/cron.log 2>&1
+   0 4 * * * cd /path/to/lazy-atia-shrine && /path/to/pnpm start >> /path/to/lazy-atia-shrine/cron.log 2>&1
    ```
    Example:
    ```
-   0 16 * * * cd /home/ec2-user/lazy-atia-shrine && /usr/local/bin/pnpm start >> /home/ec2-user/lazy-atia-shrine/cron.log 2>&1
+   0 4 * * * cd /home/ec2-user/lazy-atia-shrine && /usr/local/bin/pnpm start >> /home/ec2-user/lazy-atia-shrine/cron.log 2>&1
    ```
-   This will run the script at exactly 12:00 AM Philippines time (4:00 PM UTC) every day.
+   This will run the script at exactly 12:00 PM Philippines time (4:00 AM UTC) every day.
 
 5. Save and exit the editor:
    - For nano: Press Ctrl+O, then Enter, then Ctrl+X
